@@ -29,7 +29,7 @@ select
         group by 1,2,3,4,5,6
 )
 select 
-    hash(measurement_time) as date_id,
+    hash(measurement_time) as date_pk,
     *
 from step01_hr_data
 order by aqi_year,aqi_month,aqi_day,aqi_hour;
@@ -176,8 +176,8 @@ select
         station =  'Gangineni Cheruvu, Chittoor - APPCB' and 
         INDEX_RECORD_TS = '2024-03-01 18:00:00.000';
         
-select * from dim_date where date_id = 1635727249877756006;
-select * from dim_location where location_id = 3830234801511030131;
+-- select * from dim_date where date_pk = 1635727249877756006;
+-- select * from dim_location where  = 3830234801511030131;
 
 create or replace dynamic table fact_air_quality
     target_lag='30 min'
